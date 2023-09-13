@@ -1,0 +1,37 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:deploy": "node index.js",
+    "start": "SET NODE_ENV=production & node index.js",
+    "dev": "SET NODE_ENV=development & nodemon index.js",
+    "test": "SET NODE_ENV=test & jest --verbose --runInBand",
+    "start:test": "SET NODE_ENV=test & node index.js",
+    "build:ui": "powershell Remove-Item -Recurse -Force build; cd bloglist-frontend/; npm run build; Copy-Item -Recurse ../bloglist-backend/build ../bloglist-backend/build"
+  },
+  "proxy": "http://localhost:3003",
+  "author": "ed-w-ds",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.4.0",
+    "node": "^20.5.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "globalTeardown": "./tests/teardown.js"
+  }
+}
