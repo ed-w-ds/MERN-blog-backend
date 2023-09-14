@@ -1,0 +1,69 @@
+GET http://localhost:3003/api/blogs
+Authorization: Bearer #token#
+###
+
+POST http://localhost:3003/api/blogs
+content-type: application/json
+Authorization: bearer #token#
+{   
+    "title": "TEST TITLE",
+    "author": "TEST AUTHOR",
+    "likes": 50,
+    "url": "https://www.google.co.uk"
+}
+
+###
+
+GET http://localhost:3003/api/users
+content-type: application/json
+
+###
+
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "",
+    "name": "",
+    "password": ""
+}
+
+### 
+
+###
+POST http://localhost:3003/api/login
+content-type: application/json 
+
+{
+    "username": "",
+    "password": ""
+}
+
+### 
+DELETE http://localhost:3003/api/blogs/:id
+Authorization: bearer #token#
+###
+PUT http://localhost:3003/api/blogs/:id
+content-type: application/json
+Authorization: bearer #token
+
+{   
+    "title": "TEST TITLE",
+    "author": "TEST AUTHOR",
+    "likes": 555,
+    "url": "https://www.google.co.uk",
+    "user": "user_id",
+    "usersWhoLiked": [
+        "user_id",
+        "iser_id"
+    ]
+}
+
+###
+POST http://localhost:3003/api/blogs/:id/comments
+content-type: application/json
+Authorization: Bearer #token#
+
+{
+    "comment": "TEST COMMENT"
+}
