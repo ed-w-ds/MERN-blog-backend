@@ -22,6 +22,9 @@ blogsRouter.post('/', async (request, response) => {
     if (request.token === undefined) {
         return response.status(401).json({ error: 'token undefined' })
     }
+    if (!body.likes) {
+        body.likes = 0
+    }
 
     const user = await User.findById(decodedToken.id)
 
